@@ -661,34 +661,306 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        /* Responsive - Tablet */
+        @media (max-width: 968px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .solution-screenshot {
+                order: -1;
+            }
+
+            .solution-screenshot .phone-mockup {
+                width: 240px;
+                height: 480px;
+            }
+        }
+
+        /* Responsive - Mobile */
         @media (max-width: 768px) {
+            /* Navigation */
+            .nav-content {
+                padding: 12px 16px;
+            }
+
+            .logo span {
+                font-size: 1.25rem;
+            }
+
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 100px 0 60px;
+            }
+
             .hero h1 {
                 font-size: 2rem;
+                margin-bottom: 16px;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+                margin-bottom: 32px;
+                padding: 0 8px;
+            }
+
+            .hero-cta {
+                padding: 14px 24px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .hero-screenshots {
+                gap: 12px;
+                margin-top: 40px;
+                overflow-x: auto;
+                padding-bottom: 16px;
+                justify-content: flex-start;
+                padding-left: 24px;
+                padding-right: 24px;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
+
+            .phone-mockup {
+                width: 200px;
+                height: 400px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                border-radius: 32px;
+            }
+
+            .phone-mockup::before {
+                width: 60px;
+                height: 20px;
+                top: 10px;
+            }
+
+            /* Sections */
+            .container {
+                padding: 0 16px;
+            }
+
+            .pain-points,
+            .solution,
+            .features,
+            .how-it-works,
+            .comparison,
+            .metrics,
+            .testimonials,
+            .cta {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
             }
 
             .section-header h2,
             .solution-content h2,
             .cta h2 {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
             }
 
-            .phone-mockup {
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            /* Pain Points */
+            .pain-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .pain-card {
+                padding: 24px;
+            }
+
+            .pain-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .pain-card p {
+                font-size: 0.95rem;
+            }
+
+            /* Solution */
+            .solution-content p {
+                font-size: 1rem;
+            }
+
+            .check-list li {
+                font-size: 0.95rem;
+            }
+
+            .solution-screenshot .phone-mockup {
                 width: 220px;
                 height: 440px;
             }
 
-            .hero-screenshots {
-                gap: 16px;
+            /* Features */
+            .feature-grid {
+                gap: 24px;
+            }
+
+            .feature-screenshot {
+                height: 280px;
+            }
+
+            .feature-content {
+                padding: 20px;
+            }
+
+            .feature-content h3 {
+                font-size: 1.2rem;
+            }
+
+            /* How it works */
+            .steps {
+                gap: 32px;
+                margin-top: 40px;
+            }
+
+            .step-number {
+                width: 56px;
+                height: 56px;
+                font-size: 1.25rem;
+            }
+
+            .step h3 {
+                font-size: 1.1rem;
+            }
+
+            /* Comparison Table */
+            .comparison-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 -16px;
+                padding: 0 16px;
             }
 
             .comparison-table {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+                min-width: 500px;
             }
 
             .comparison-table th,
             .comparison-table td {
                 padding: 12px 8px;
+            }
+
+            .comparison-table th:first-child,
+            .comparison-table td:first-child {
+                position: sticky;
+                left: 0;
+                background: var(--bg-dark);
+                z-index: 1;
+            }
+
+            /* Metrics */
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .metric-card {
+                padding: 16px;
+            }
+
+            .metric-card .value {
+                font-size: 1.75rem;
+            }
+
+            .metric-card .label {
+                font-size: 0.8rem;
+            }
+
+            /* Testimonials */
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .testimonial-card {
+                padding: 24px;
+            }
+
+            .testimonial-card .quote {
+                font-size: 1rem;
+            }
+
+            /* CTA */
+            .cta p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            /* Footer */
+            footer {
+                padding: 32px 0;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Responsive - Small Mobile */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 360px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-cta {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Better touch targets */
+        @media (hover: none) {
+            .hero-cta,
+            .btn-primary,
+            .btn-secondary,
+            .nav-cta {
+                min-height: 48px;
             }
         }
     </style>
@@ -922,6 +1194,7 @@
                 <h2>Why OcheMaster?</h2>
             </div>
 
+            <div class="comparison-table-wrapper">
             <table class="comparison-table">
                 <thead>
                     <tr>
@@ -970,6 +1243,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
 
