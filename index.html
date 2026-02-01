@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OcheMaster - Your Personal Darts Biomechanics Coach</title>
+    <meta name="description" content="Stop guessing what's wrong with your throw. OcheMaster analyzes your dart throwing technique using AI-powered biomechanics to give you objective feedback and a clear path to improvement.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="OcheMaster - Your Personal Darts Biomechanics Coach">
+    <meta property="og:description" content="AI-powered dart throwing analysis. Get objective metrics on your technique and track your improvement over time.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #f87171;
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --success: #22c55e;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a1a2e 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .hero-cta svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .hero-note {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Hero Screenshots */
+        .hero-screenshots {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 60px;
+            padding: 0 24px;
+            flex-wrap: wrap;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: var(--bg-card);
+            border-radius: 40px;
+            border: 4px solid #2a2a3e;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #2a2a3e;
+            border-radius: 12px;
+            z-index: 10;
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .phone-mockup img.center {
+            object-position: center center;
+        }
+
+        .phone-mockup img.metrics {
+            object-position: center 5%;
+        }
+
+        .phone-mockup .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .phone-mockup .placeholder svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* Pain Points Section */
+        .pain-points {
+            padding: 100px 0;
+            background: var(--bg-card);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .pain-card {
+            background: var(--bg-dark);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pain-card .icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(248, 113, 113, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .pain-card .icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+
+        .pain-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .pain-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 100px 0;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .solution-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .solution-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .check-list li svg {
+            width: 24px;
+            height: 24px;
+            color: var(--success);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .solution-screenshot {
+            position: relative;
+        }
+
+        .solution-screenshot .phone-mockup {
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--bg-card);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-dark);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-screenshot {
+            height: 380px;
+            background: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .feature-screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .feature-screenshot img.pos-center {
+            object-position: center center;
+        }
+
+        .feature-screenshot img.pos-top {
+            object-position: top center;
+        }
+
+        .feature-screenshot img.pos-consistency {
+            object-position: center 15%;
+        }
+
+        .feature-screenshot img.pos-quadrant {
+            object-position: center 25%;
+        }
+
+        .feature-screenshot img.pos-progress {
+            object-position: center 10%;
+        }
+
+        .feature-content {
+            padding: 28px;
+        }
+
+        .feature-content h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+        }
+
+        /* Metrics Section */
+        .metrics {
+            padding: 100px 0;
+            background: var(--bg-card);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .metric-card {
+            background: var(--bg-dark);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .metric-card .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .metric-card .label {
+            color: var(--text-secondary);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a1a2e 100%);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: border-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 100px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+        }
+
+        .comparison-table .check {
+            color: var(--success);
+        }
+
+        .comparison-table .cross {
+            color: var(--accent);
+        }
+
+        /* Testimonials (placeholder) */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--bg-card);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-dark);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-card .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-author .avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .testimonial-author .info .name {
+            font-weight: 600;
+        }
+
+        .testimonial-author .info .role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2,
+            .solution-content h2,
+            .cta h2 {
+                font-size: 1.75rem;
+            }
+
+            .phone-mockup {
+                width: 220px;
+                height: 440px;
+            }
+
+            .hero-screenshots {
+                gap: 16px;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <img src="icon.png" alt="OcheMaster">
+                <span>OcheMaster</span>
+            </a>
+            <a href="#download" class="nav-cta">Get Beta Access</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Stop Guessing.<br><span class="highlight">Start Improving.</span></h1>
+            <p class="subtitle">Your dart throw analyzed by AI biomechanics. Get objective metrics, track your progress, and know exactly what to work on.</p>
+            <a href="#download" class="hero-cta">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download on TestFlight
+            </a>
+            <p class="hero-note">Free during beta. iOS only for now.</p>
+
+            <div class="hero-screenshots">
+                <div class="phone-mockup">
+                    <img src="screenshots/results.jpg" alt="Analysis Results">
+                </div>
+                <div class="phone-mockup">
+                    <img src="screenshots/speed-replay.jpg" alt="Throw Analysis" class="center">
+                </div>
+                <div class="phone-mockup">
+                    <img src="screenshots/progress.jpg" alt="Progress Tracking">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sound Familiar?</h2>
+                <p>Every darts player hits these walls. We built OcheMaster to break through them.</p>
+            </div>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3>"I don't know what I'm doing wrong"</h3>
+                    <p>You practice for hours but can't figure out why some throws feel perfect and others don't. Without objective feedback, you're just guessing.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/></svg>
+                    </div>
+                    <h3>"My scores plateau for months"</h3>
+                    <p>You've been stuck at the same average for ages. Practice isn't translating to improvement because you're not working on the right things.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>"Coaching is expensive or unavailable"</h3>
+                    <p>Professional coaching costs $50-100/hour and isn't available everywhere. Most players have to figure it out alone through trial and error.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                    </div>
+                    <h3>"I can't track if I'm actually improving"</h3>
+                    <p>Sure, you track your match scores, but that doesn't tell you WHY you're improving or declining. You need technique metrics, not just results.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>"I don't have time for long practice sessions"</h3>
+                    <p>Between work and life, you get maybe 30 minutes at the board. You need to make every throw count, but don't know how to maximize that time.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>"Advice from others is contradictory"</h3>
+                    <p>"Throw harder." "No, throw softer." "Keep your elbow still." "Let it flow naturally." Everyone has an opinion. None of it is based on YOUR actual technique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-grid">
+                <div class="solution-content">
+                    <h2>Your Throw, Measured Objectively</h2>
+                    <p>OcheMaster uses computer vision to analyze your throwing mechanics. Just record 3 throws with your phone, and our AI breaks down exactly what's happening.</p>
+
+                    <ul class="check-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span><strong>5 Key Metrics</strong> - Head stability, elbow anchor, forearm path, release timing, and tempo ratio</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span><strong>Two-Axis Diagnostic</strong> - Understand if you need to work on consistency or form adjustment</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span><strong>Elite Benchmarks</strong> - See how you compare to professional standards</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span><strong>Progress Over Time</strong> - Track every session and watch yourself improve</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="solution-screenshot">
+                    <div class="phone-mockup">
+                        <img src="screenshots/share.jpg" alt="Biomechanics Analysis" class="center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything You Need to Improve</h2>
+                <p>Built by darts players who got tired of guessing.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-screenshot">
+                        <img src="screenshots/replay-overlay.jpg" alt="Throw Replay" class="pos-center">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Full-Screen Throw Replay</h3>
+                        <p>Watch your throw in slow motion with skeleton overlay and trajectory path. See exactly where your arm goes and when you release.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-screenshot">
+                        <img src="screenshots/consistency.jpg" alt="Throw Consistency" class="pos-consistency">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Throw Consistency Analysis</h3>
+                        <p>All your throws superimposed to show how repeatable your technique is. Pros aim for identical paths - see how close you get.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-screenshot">
+                        <img src="screenshots/quadrant.jpg" alt="Two-Axis Diagnostic" class="pos-quadrant">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Two-Axis Diagnostic</h3>
+                        <p>Are you inconsistent but correct? Or consistent but off? Our stability vs. alignment quadrant tells you exactly what to focus on.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-screenshot">
+                        <img src="screenshots/progress.jpg" alt="Progress Trends" class="pos-progress">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Track Your Journey</h3>
+                        <p>Every session recorded. See your metrics trend over weeks and months. Set goals. Hit milestones. Know you're getting better.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Three Throws. That's All It Takes.</h2>
+                <p>No special equipment. No complicated setup. Just your phone.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Record Your Throws</h3>
+                    <p>Set up your phone to capture your side profile. Record 3 throws at normal pace. Use the gallery to import the video.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analyzes Your Technique</h3>
+                    <p>Our computer vision tracks 33 body points in 3D. We calculate stability, timing, path quality, and compare to elite benchmarks.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Actionable Insights</h3>
+                    <p>See your scores, watch your throws with overlays, and understand exactly what to work on in your next practice session.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Track Your Progress</h3>
+                    <p>Record again next week. See what changed. Watch your metrics improve as your muscle memory develops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why OcheMaster?</h2>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Improvement Method</th>
+                        <th>Objective Data</th>
+                        <th>Tracks Progress</th>
+                        <th>Available Anytime</th>
+                        <th>Affordable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>OcheMaster</td>
+                        <td class="check">&#10003;</td>
+                        <td class="check">&#10003;</td>
+                        <td class="check">&#10003;</td>
+                        <td class="check">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td>Professional Coach</td>
+                        <td class="check">&#10003;</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="cross">&#10007;</td>
+                    </tr>
+                    <tr>
+                        <td>YouTube Videos</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="check">&#10003;</td>
+                        <td class="check">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td>Asking Friends</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="check">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td>Just Practicing More</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="cross">&#10007;</td>
+                        <td class="check">&#10003;</td>
+                        <td class="check">&#10003;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Metrics Highlight -->
+    <section class="metrics">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Measure</h2>
+                <p>Five research-backed biomechanics metrics that separate elite from developing players.</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="value">15%</div>
+                    <div class="label">Head & Upper-Body Stability</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">18%</div>
+                    <div class="label">Elbow Anchor Consistency</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">22%</div>
+                    <div class="label">Forearm Path Quality</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">30%</div>
+                    <div class="label">Release Timing Consistency</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">15%</div>
+                    <div class="label">Tempo & Rhythm Ratio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (Placeholder for future) -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Players Are Saying</h2>
+                <p>Join our growing community of darts players improving with data.</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"I had no idea my elbow was moving so much. After seeing the overlay, I knew exactly what to fix. My average went up 8 points in a month."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">JD</div>
+                        <div class="info">
+                            <div class="name">Coming Soon</div>
+                            <div class="role">Beta tester feedback</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="quote">"Finally, something that gives me actual numbers instead of 'try this' or 'feel that'. The progress tracking keeps me motivated."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">SM</div>
+                        <div class="info">
+                            <div class="name">Coming Soon</div>
+                            <div class="role">Beta tester feedback</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="quote">"I used to think my form was solid. OcheMaster showed me my timing was all over the place. Now I know what to work on."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">TK</div>
+                        <div class="info">
+                            <div class="name">Coming Soon</div>
+                            <div class="role">Beta tester feedback</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta" id="download">
+        <div class="container">
+            <h2>Ready to Stop Guessing?</h2>
+            <p>Join our beta and get objective feedback on your dart throwing technique.</p>
+
+            <div class="cta-buttons">
+                <a href="https://testflight.apple.com/join/YOUR_TESTFLIGHT_CODE" class="btn-primary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Get on TestFlight
+                </a>
+                <a href="mailto:support@ochemaster.com" class="btn-secondary">
+                    Contact Us
+                </a>
+            </div>
+
+            <p class="hero-note" style="margin-top: 24px;">Free during beta. Available on iOS. Android coming soon.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 OcheMaster. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                <a href="privacy.html">Privacy Policy</a> &bull;
+                <a href="terms.html">Terms of Service</a> &bull;
+                <a href="mailto:support@ochemaster.com">Contact</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
