@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OcheMaster - Your Personal Darts Biomechanics Coach</title>
-    <meta name="description" content="Stop guessing what's wrong with your throw. OcheMaster analyzes your dart throwing technique using AI-powered biomechanics to give you objective feedback and a clear path to improvement.">
+    <title>OcheMaster - Visit-Based Throw Diagnostics for Serious Darts Players</title>
+    <meta name="description" content="OcheMaster measures the stability and alignment of your throw inside a visit. It identifies mechanical drift, release timing variability, and alignment against high-performing bands — so you stop guessing why your game breaks down.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="OcheMaster - Your Personal Darts Biomechanics Coach">
-    <meta property="og:description" content="AI-powered dart throwing analysis. Get objective metrics on your technique and track your improvement over time.">
+    <meta property="og:title" content="OcheMaster - Consistency Wins Matches">
+    <meta property="og:description" content="Visit-based throw diagnostics that measure stability, alignment, and mechanical drift. Built for serious players. No gimmicks. No guesswork.">
     <meta property="og:type" content="website">
 
     <!-- Favicon -->
@@ -172,32 +172,37 @@
         .phone-mockup {
             width: 280px;
             height: 560px;
-            background: var(--bg-card);
+            background: #000;
             border-radius: 40px;
             border: 4px solid #2a2a3e;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             position: relative;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Dynamic Island / Notch area */
         .phone-mockup::before {
             content: '';
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
             width: 80px;
             height: 24px;
-            background: #2a2a3e;
+            background: #1a1a1a;
             border-radius: 12px;
-            z-index: 10;
+            margin: 0 auto 8px;
+            flex-shrink: 0;
         }
 
+        /* Screen area below notch */
         .phone-mockup img {
+            flex: 1;
             width: 100%;
-            height: 100%;
+            min-height: 0;
             object-fit: cover;
             object-position: top center;
+            border-radius: 20px;
         }
 
         .phone-mockup img.center {
@@ -685,6 +690,7 @@
             .solution-screenshot .phone-mockup {
                 width: 240px;
                 height: 480px;
+                padding: 10px;
             }
         }
 
@@ -743,12 +749,13 @@
                 width: 220px;
                 height: 440px;
                 border-radius: 32px;
+                padding: 10px;
             }
 
             .phone-mockup::before {
                 width: 60px;
-                height: 20px;
-                top: 10px;
+                height: 18px;
+                margin-bottom: 6px;
             }
 
             /* Sections */
@@ -829,6 +836,7 @@
             .solution-screenshot .phone-mockup {
                 width: 220px;
                 height: 440px;
+                padding: 10px;
             }
 
             /* Features */
@@ -994,6 +1002,13 @@
             .phone-mockup {
                 width: 180px;
                 height: 360px;
+                padding: 8px;
+            }
+
+            .phone-mockup::before {
+                width: 50px;
+                height: 16px;
+                margin-bottom: 5px;
             }
 
             .nav-cta {
@@ -1041,8 +1056,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Stop Guessing.<br><span class="highlight">Start Improving.</span></h1>
-            <p class="subtitle">Your dart throw analyzed by AI biomechanics. Get objective metrics, track your progress, and know exactly what to work on.</p>
+            <h1>Consistency<br><span class="highlight">Wins Matches.</span></h1>
+            <p class="subtitle">OcheMaster measures how stable your throw is inside a visit, shows how it aligns with high-performing patterns, and highlights what drifts over time.</p>
             <a href="#download" class="hero-cta">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 Download on TestFlight
@@ -1067,8 +1082,8 @@
     <section class="pain-points">
         <div class="container">
             <div class="section-header">
-                <h2>Sound Familiar?</h2>
-                <p>Every darts player hits these walls. We built OcheMaster to break through them.</p>
+                <h2>Why Does Your Game Break Down?</h2>
+                <p>You know something's off, but you can't see what's drifting. That's the problem.</p>
             </div>
 
             <div class="pain-grid">
@@ -1076,48 +1091,48 @@
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                     </div>
-                    <h3>"I don't know what I'm doing wrong"</h3>
-                    <p>You practice for hours but can't figure out why some throws feel perfect and others don't. Without objective feedback, you're just guessing.</p>
+                    <h3>Mechanical drift you can't see</h3>
+                    <p>Your first dart hits. Your third misses. Something changed in your throw, but you can't see what drifted.</p>
                 </div>
 
                 <div class="pain-card">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/></svg>
                     </div>
-                    <h3>"My scores plateau for months"</h3>
-                    <p>You've been stuck at the same average for ages. Practice isn't translating to improvement because you're not working on the right things.</p>
+                    <h3>Release timing variability</h3>
+                    <p>Your arm moves the same way, but your release point shifts. Without measurement, you're guessing at the cause.</p>
                 </div>
 
                 <div class="pain-card">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
-                    <h3>"Coaching is expensive or unavailable"</h3>
-                    <p>Professional coaching costs $50-100/hour and isn't available everywhere. Most players have to figure it out alone through trial and error.</p>
+                    <h3>No benchmark for what "good" looks like</h3>
+                    <p>Is your elbow drift acceptable? Is your timing consistent enough? Without high-performer data, you have no frame of reference.</p>
                 </div>
 
                 <div class="pain-card">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
                     </div>
-                    <h3>"I can't track if I'm actually improving"</h3>
-                    <p>Sure, you track your match scores, but that doesn't tell you WHY you're improving or declining. You need technique metrics, not just results.</p>
+                    <h3>Practice doesn't fix what you can't measure</h3>
+                    <p>You practice more but plateau anyway. Because you're repeating the same unmeasured errors.</p>
                 </div>
 
                 <div class="pain-card">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
-                    <h3>"I don't have time for long practice sessions"</h3>
-                    <p>Between work and life, you get maybe 30 minutes at the board. You need to make every throw count, but don't know how to maximize that time.</p>
+                    <h3>Instability shows up under pressure</h3>
+                    <p>Your throw works in practice but falls apart in matches. Mechanical instability amplifies when it matters most.</p>
                 </div>
 
                 <div class="pain-card">
                     <div class="icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
-                    <h3>"Advice from others is contradictory"</h3>
-                    <p>"Throw harder." "No, throw softer." "Keep your elbow still." "Let it flow naturally." Everyone has an opinion. None of it is based on YOUR actual technique.</p>
+                    <h3>Generic advice doesn't fit your throw</h3>
+                    <p>"Keep your elbow still." But is YOUR elbow the problem? Without YOUR data, you're following someone else's diagnosis.</p>
                 </div>
             </div>
         </div>
@@ -1128,25 +1143,25 @@
         <div class="container">
             <div class="solution-grid">
                 <div class="solution-content">
-                    <h2>Your Throw, Measured Objectively</h2>
-                    <p>OcheMaster uses computer vision to analyze your throwing mechanics. Just record 3 throws with your phone, and our AI breaks down exactly what's happening.</p>
+                    <h2>Visit-Based Throw Diagnostics</h2>
+                    <p>OcheMaster doesn't chase textbook form. It identifies mechanical drift, release timing variability, and alignment against high-performing bands — so you can see what's breaking and why.</p>
 
                     <ul class="check-list">
                         <li>
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            <span><strong>5 Key Metrics</strong> - Head stability, elbow anchor, forearm path, release timing, and tempo ratio</span>
+                            <span><strong>Stability Score</strong> - How consistent is your throw across a visit? Measures mechanical drift.</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            <span><strong>Two-Axis Diagnostic</strong> - Understand if you need to work on consistency or form adjustment</span>
+                            <span><strong>Alignment Score</strong> - How close are you to high-performing patterns? Not textbook — data-driven.</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            <span><strong>Elite Benchmarks</strong> - See how you compare to professional standards</span>
+                            <span><strong>Drift Detection</strong> - See which throw in the visit broke from your baseline.</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            <span><strong>Progress Over Time</strong> - Track every session and watch yourself improve</span>
+                            <span><strong>Session Tracking</strong> - Watch your stability and alignment evolve over time.</span>
                         </li>
                     </ul>
                 </div>
@@ -1164,8 +1179,8 @@
     <section class="features">
         <div class="container">
             <div class="section-header">
-                <h2>Everything You Need to Improve</h2>
-                <p>Built by darts players who got tired of guessing.</p>
+                <h2>No Gimmicks. No Guesswork.</h2>
+                <p>Just measurable performance data. Built for serious players.</p>
             </div>
 
             <div class="feature-grid">
@@ -1174,8 +1189,8 @@
                         <img src="screenshots/replay-overlay.jpg" alt="Throw Replay" class="pos-center">
                     </div>
                     <div class="feature-content">
-                        <h3>Full-Screen Throw Replay</h3>
-                        <p>Watch your throw in slow motion with skeleton overlay and trajectory path. See exactly where your arm goes and when you release.</p>
+                        <h3>See Your Mechanics in Motion</h3>
+                        <p>Skeleton overlay shows exactly what your arm does through each throw. Spot the drift between dart 1 and dart 3.</p>
                     </div>
                 </div>
 
@@ -1184,8 +1199,8 @@
                         <img src="screenshots/consistency.jpg" alt="Throw Consistency" class="pos-consistency">
                     </div>
                     <div class="feature-content">
-                        <h3>Throw Consistency Analysis</h3>
-                        <p>All your throws superimposed to show how repeatable your technique is. Pros aim for identical paths - see how close you get.</p>
+                        <h3>Overlay All Throws in a Visit</h3>
+                        <p>See how much your throw path varies. Tight grouping = mechanical stability. Scatter = drift to diagnose.</p>
                     </div>
                 </div>
 
@@ -1194,8 +1209,8 @@
                         <img src="screenshots/quadrant.jpg" alt="Two-Axis Diagnostic" class="pos-quadrant">
                     </div>
                     <div class="feature-content">
-                        <h3>Two-Axis Diagnostic</h3>
-                        <p>Are you inconsistent but correct? Or consistent but off? Our stability vs. alignment quadrant tells you exactly what to focus on.</p>
+                        <h3>Stability vs. Alignment Diagnostic</h3>
+                        <p>Stable but off-target? Aligned but inconsistent? The quadrant tells you which axis needs work.</p>
                     </div>
                 </div>
 
@@ -1204,8 +1219,8 @@
                         <img src="screenshots/progress.jpg" alt="Progress Trends" class="pos-progress">
                     </div>
                     <div class="feature-content">
-                        <h3>Track Your Journey</h3>
-                        <p>Every session recorded. See your metrics trend over weeks and months. Set goals. Hit milestones. Know you're getting better.</p>
+                        <h3>Track Drift Over Sessions</h3>
+                        <p>Your mechanics change over time. Watch your stability and alignment evolve — or regress — across sessions.</p>
                     </div>
                 </div>
             </div>
@@ -1216,33 +1231,33 @@
     <section class="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2>Three Throws. That's All It Takes.</h2>
-                <p>No special equipment. No complicated setup. Just your phone.</p>
+                <h2>One Visit. Real Data.</h2>
+                <p>Record a 3-dart visit. See what drifted. Fix it.</p>
             </div>
 
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Record Your Throws</h3>
-                    <p>Set up your phone to capture your side profile. Record 3 throws at normal pace. Use the gallery to import the video.</p>
+                    <h3>Record a Visit</h3>
+                    <p>Set up your phone from the side. Record 3 throws at match pace. Upload the video.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>AI Analyzes Your Technique</h3>
-                    <p>Our computer vision tracks 33 body points in 3D. We calculate stability, timing, path quality, and compare to elite benchmarks.</p>
+                    <h3>Measure Stability & Alignment</h3>
+                    <p>Computer vision tracks your mechanics frame-by-frame. We measure drift and compare to high-performing bands.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Get Actionable Insights</h3>
-                    <p>See your scores, watch your throws with overlays, and understand exactly what to work on in your next practice session.</p>
+                    <h3>See What Broke</h3>
+                    <p>Identify which throw drifted and which mechanic changed. No guessing. Just data.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Track Your Progress</h3>
-                    <p>Record again next week. See what changed. Watch your metrics improve as your muscle memory develops.</p>
+                    <h3>Track Over Time</h3>
+                    <p>Record more visits. Watch your stability improve. See when mechanics regress.</p>
                 </div>
             </div>
         </div>
@@ -1341,8 +1356,8 @@
     <section class="metrics">
         <div class="container">
             <div class="section-header">
-                <h2>What We Measure</h2>
-                <p>Five research-backed biomechanics metrics that separate elite from developing players.</p>
+                <h2>What Gets Measured</h2>
+                <p>Five mechanics weighted by impact on throw consistency. Not textbook form — real-world performance data.</p>
             </div>
 
             <div class="metrics-grid">
@@ -1370,44 +1385,44 @@
         </div>
     </section>
 
-    <!-- Testimonials (Placeholder for future) -->
+    <!-- Beta Testers CTA -->
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>What Players Are Saying</h2>
-                <p>Join our growing community of darts players improving with data.</p>
+                <h2>Beta Access Open</h2>
+                <p>Designed for real-world play. Built for players who want data, not fluff.</p>
             </div>
 
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p class="quote">"I had no idea my elbow was moving so much. After seeing the overlay, I knew exactly what to fix. My average went up 8 points in a month."</p>
+                    <p class="quote">Record a visit. See your stability and alignment scores. Identify which throw drifted and what changed.</p>
                     <div class="testimonial-author">
-                        <div class="avatar">JD</div>
+                        <div class="avatar" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">1</div>
                         <div class="info">
-                            <div class="name">Coming Soon</div>
-                            <div class="role">Beta tester feedback</div>
+                            <div class="name">Visit-Based Diagnostics</div>
+                            <div class="role">Not single-throw analysis</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <p class="quote">"Finally, something that gives me actual numbers instead of 'try this' or 'feel that'. The progress tracking keeps me motivated."</p>
+                    <p class="quote">Free during beta. No credit card. Just download via TestFlight and start measuring your mechanics.</p>
                     <div class="testimonial-author">
-                        <div class="avatar">SM</div>
+                        <div class="avatar" style="background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);">2</div>
                         <div class="info">
-                            <div class="name">Coming Soon</div>
-                            <div class="role">Beta tester feedback</div>
+                            <div class="name">Free During Beta</div>
+                            <div class="role">No commitment</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <p class="quote">"I used to think my form was solid. OcheMaster showed me my timing was all over the place. Now I know what to work on."</p>
+                    <p class="quote">We're building this for serious players. Your feedback shapes what we measure and how we present it.</p>
                     <div class="testimonial-author">
-                        <div class="avatar">TK</div>
+                        <div class="avatar" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">3</div>
                         <div class="info">
-                            <div class="name">Coming Soon</div>
-                            <div class="role">Beta tester feedback</div>
+                            <div class="name">Player-Driven</div>
+                            <div class="role">Built with feedback</div>
                         </div>
                     </div>
                 </div>
@@ -1418,15 +1433,15 @@
     <!-- Final CTA -->
     <section class="cta" id="download">
         <div class="container">
-            <h2>Ready to Stop Guessing?</h2>
-            <p>Join our beta and get objective feedback on your dart throwing technique.</p>
+            <h2>Built for Serious Players</h2>
+            <p>Stop guessing why your game breaks down. Start measuring what actually drifts.</p>
 
             <div class="cta-buttons">
-                <a href="https://testflight.apple.com/join/YOUR_TESTFLIGHT_CODE" class="btn-primary">
+                <a href="https://testflight.apple.com/join/2QTXZPKS" class="btn-primary">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                     Get on TestFlight
                 </a>
-                <a href="mailto:support@ochemaster.com" class="btn-secondary">
+                <a href="mailto:richard@ochemaster.ai" class="btn-secondary">
                     Contact Us
                 </a>
             </div>
@@ -1442,7 +1457,7 @@
             <p style="margin-top: 8px;">
                 <a href="privacy.html">Privacy Policy</a> &bull;
                 <a href="terms.html">Terms of Service</a> &bull;
-                <a href="mailto:support@ochemaster.com">Contact</a>
+                <a href="mailto:richard@ochemaster.ai">Contact</a>
             </p>
         </div>
     </footer>
