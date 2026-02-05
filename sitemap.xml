@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://ochemaster.ai/</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ochemaster.ai/icon.png</image:loc>
+      <image:title>OcheMaster App Icon</image:title>
+      <image:caption>OcheMaster - Visit-based throw diagnostics for darts players</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ochemaster.ai/screenshots/results.jpg</image:loc>
+      <image:title>OcheMaster Analysis Results</image:title>
+      <image:caption>Dart throw analysis showing skill bands and metrics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ochemaster.ai/screenshots/replay-overlay.jpg</image:loc>
+      <image:title>OcheMaster Skeleton Overlay</image:title>
+      <image:caption>Mechanics visualization with skeleton tracking overlay</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ochemaster.ai/screenshots/progress.jpg</image:loc>
+      <image:title>OcheMaster Progress Tracking</image:title>
+      <image:caption>Track your improvement over time with pattern detection</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://ochemaster.ai/privacy.html</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://ochemaster.ai/terms.html</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
