@@ -1,6 +1,6 @@
 {
-  "name": "OcheMaster",
-  "short_name": "OcheMaster",
+  "name": "OcheIQ",
+  "short_name": "OcheIQ",
   "description": "Visit-based throw diagnostics for serious darts players. Analyze your mechanics, track skill bands, and find patterns.",
   "start_url": "/",
   "display": "standalone",
@@ -41,7 +41,7 @@
   "related_applications": [
     {
       "platform": "itunes",
-      "url": "https://apps.apple.com/app/ochemaster"
+      "url": "https://apps.apple.com/app/ocheiq"
     }
   ],
   "prefer_related_applications": true

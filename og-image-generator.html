@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Generator - Screenshot at 1200x630</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            padding: 40px;
+        }
+
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        /* Background pattern */
+        .og-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Decorative darts pattern */
+        .og-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.03;
+            background-size: 60px 60px;
+            background-image:
+                linear-gradient(45deg, #6366f1 25%, transparent 25%),
+                linear-gradient(-45deg, #6366f1 25%, transparent 25%);
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .logo-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: white;
+        }
+
+        .brand-name {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 72px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .tagline .highlight {
+            background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline .white {
+            color: white;
+        }
+
+        .subtitle {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 24px;
+            color: #a1a1aa;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        .badges {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 18px;
+            color: #818cf8;
+            font-weight: 600;
+        }
+
+        /* Instructions - not part of OG image */
+        .instructions {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-image">
+        <div class="content">
+            <div class="logo-row">
+                <div class="logo-icon">
+                    <!-- Dartboard/target icon -->
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                        <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <span class="brand-name">OcheIQ</span>
+            </div>
+
+            <div class="tagline">
+                <span class="white">Consistency</span> <span class="highlight">Wins Matches.</span>
+            </div>
+
+            <p class="subtitle">
+                Visit-based throw diagnostics for serious darts players.<br>
+                Skill bands. Timing analysis. Pattern detection.
+            </p>
+
+            <div class="badges">
+                <span class="badge">iOS App</span>
+                <span class="badge">Free Beta</span>
+                <span class="badge">Computer Vision</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="instructions">
+        Screenshot at exactly 1200x630px, then save as og-image.png
+    </div>
+</body>
+</html>

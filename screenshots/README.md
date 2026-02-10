@@ -1,71 +1,44 @@
-# OcheMaster Landing Page Screenshots
+# OcheIQ Landing Page Screenshots
 
-Add the following screenshots to this folder. Use PNG format, captured from an iPhone at native resolution (preferably iPhone 14/15 Pro for best quality).
+Screenshots for the landing page at https://ocheiq.com
 
-## Required Screenshots
+## Current Screenshots (Build #37)
 
-### Hero Section (3 phones side by side)
+| Filename | Source | Description | Used In |
+|----------|--------|-------------|---------|
+| `upload.jpg` | IMG_9057 | Upload screen with "Upload Video" button and Video Requirements | Solution section |
+| `results.jpg` | IMG_9058 | Results showing "Dart 2 was rushed" with baseline building | Hero, Features |
+| `share.jpg` | IMG_9059 | Session detail with 85 ±6 score, skill band, timing insight | Hero, Features |
+| `consistency.jpg` | IMG_9060 | Arm path overlay with 96% consistency, analysis insights | Hero, Features |
+| `replay-overlay.jpg` | IMG_9061 | Video replay with skeleton tracking overlay | Features |
 
-| Filename | Description | What to Capture |
-|----------|-------------|-----------------|
-| `results.png` | Main results screen | Overall score circle, stability/alignment scores, metric breakdown |
-| `replay.png` | Throw replay viewer | Video playing with skeleton overlay visible, phase colors showing |
-| `progress.png` | Progress tracking tab | Trend charts, practice calendar, or goal progress |
+## Image Positioning (CSS Classes)
 
-### Feature Cards (4 screenshots)
+### Hero Section (Phone Mockups)
+- `results.jpg` - `pos-results-hero` (top center) - Shows "Dart 2 was rushed"
+- `share.jpg` - `pos-score-hero` (center 38%) - Shows score card and skill band
+- `consistency.jpg` - `pos-consistency-hero` (center 12%) - Shows arm path graph
 
-| Filename | Description | What to Capture |
-|----------|-------------|-----------------|
-| `replay-overlay.png` | Full-screen throw replay | Best with skeleton and trajectory both visible, mid-throw phase |
-| `consistency.png` | Throw overlay analysis | All throws superimposed, showing consistency patterns |
-| `quadrant.png` | Two-axis diagnostic | The stability vs alignment quadrant with your position marked |
-| `trends.png` | Progress over time | Line chart showing improvement, or the two-axis scatter plot |
+### Solution Section (Phone Mockup)
+- `upload.jpg` - `pos-upload` (top center) - Shows clean upload UI
 
-### Solution Section (1 screenshot)
+### Features Section (Feature Cards)
+- `replay-overlay.jpg` - `pos-replay` (center 45%) - Shows person with skeleton
+- `consistency.jpg` - `pos-consistency` (center 20%) - Shows arm path visualization
+- `share.jpg` - `pos-score` (center 45%) - Shows skill band progress
+- `results.jpg` - `pos-results` (top center) - Shows pattern detection insight
 
-| Filename | Description | What to Capture |
-|----------|-------------|-----------------|
-| `metrics.png` | Metric cards expanded | Individual metric scores with skill bands (Elite/Advanced/Developing) |
+## How to Update Screenshots
 
-## Tips for Great Screenshots
+1. Take new screenshots from TestFlight or Simulator
+2. Copy to this folder with appropriate name
+3. Update `index.html` positioning classes if needed
+4. Deploy: `vercel --prod`
 
-1. **Use Dark Mode** - The landing page is dark-themed, screenshots look better in dark mode
-2. **Use a Real Session** - Capture actual analysis results, not empty states
-3. **Show Good Scores** - Aim for sessions with decent scores (70+) to look impressive
-4. **Crop Carefully** - Remove status bar if possible, or ensure it's clean (no low battery, no notifications)
-5. **Consistent Size** - All screenshots should be the same dimensions
+## Screenshot Guidelines
 
-## How to Capture
-
-### Option 1: Simulator
-```bash
-# Run app in simulator
-cd mobile
-npx expo start --ios
-
-# Use Cmd+S to capture screenshot in simulator
-```
-
-### Option 2: Physical Device
-1. Open the app on your iPhone
-2. Navigate to the screen you want to capture
-3. Press Side Button + Volume Up simultaneously
-4. Find screenshot in Photos app
-5. AirDrop to your Mac
-
-### Option 3: From TestFlight Build
-Use the TestFlight app version for the most accurate production screenshots.
-
-## After Adding Screenshots
-
-Update `index.html` to use the images. Replace the placeholder divs:
-
-```html
-<!-- Change this: -->
-<div class="placeholder">
-    <p>Add screenshot: screenshots/results.png</p>
-</div>
-
-<!-- To this: -->
-<img src="screenshots/results.png" alt="Analysis Results">
-```
+- **Format**: JPG preferred (smaller file size)
+- **Resolution**: iPhone native resolution (1179x2556 for iPhone 14 Pro)
+- **Mode**: Dark mode (matches landing page theme)
+- **Content**: Show real analysis data, not empty states
+- **Scores**: Aim for good scores (70+) for impressive presentation

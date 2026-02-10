@@ -1,11 +1,11 @@
-# OcheMaster Robots.txt
-# https://ochemaster.ai/robots.txt
+# OcheIQ Robots.txt
+# https://ocheiq.com/robots.txt
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://ochemaster.ai/sitemap.xml
+Sitemap: https://ocheiq.com/sitemap.xml
 
 # Crawl-delay (optional, for polite crawlers)
 Crawl-delay: 1
