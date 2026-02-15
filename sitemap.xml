@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://ocheiq.com/</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,26 +14,36 @@
       <image:caption>OcheIQ - Visit-based throw diagnostics for darts players</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://ocheiq.com/screenshots/results.jpg</image:loc>
-      <image:title>OcheIQ Analysis Results</image:title>
-      <image:caption>Dart throw analysis showing skill bands and metrics</image:caption>
+      <image:loc>https://ocheiq.com/screenshots/score.png</image:loc>
+      <image:title>OcheIQ Session Detail</image:title>
+      <image:caption>Score ring showing 90 Elite with color-coded metric bars</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://ocheiq.com/screenshots/replay-overlay.jpg</image:loc>
+      <image:loc>https://ocheiq.com/screenshots/results.png</image:loc>
+      <image:title>OcheIQ Insights</image:title>
+      <image:caption>Per-throw insights with pattern detection and recent sessions</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ocheiq.com/screenshots/replay-overlay.png</image:loc>
       <image:title>OcheIQ Skeleton Overlay</image:title>
-      <image:caption>Mechanics visualization with skeleton tracking overlay</image:caption>
+      <image:caption>Skeleton tracking overlay with trajectory path and phase navigation</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://ocheiq.com/screenshots/progress.jpg</image:loc>
-      <image:title>OcheIQ Progress Tracking</image:title>
-      <image:caption>Track your improvement over time with pattern detection</image:caption>
+      <image:loc>https://ocheiq.com/screenshots/consistency.png</image:loc>
+      <image:title>OcheIQ Throw Overlay</image:title>
+      <image:caption>Throw paths overlaid with coaching drill</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ocheiq.com/screenshots/coaching.png</image:loc>
+      <image:title>OcheIQ Wrist Heatmap</image:title>
+      <image:caption>Wrist heatmap with release cluster zone and consistency label</image:caption>
     </image:image>
   </url>
 
   <!-- Privacy Policy -->
   <url>
     <loc>https://ocheiq.com/privacy.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -41,7 +51,7 @@
   <!-- Terms of Service -->
   <url>
     <loc>https://ocheiq.com/terms.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

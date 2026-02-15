@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>OcheIQ - Visit-Based Throw Diagnostics for Serious Darts Players</title>
-    <meta name="title" content="OcheIQ - Visit-Based Throw Diagnostics for Serious Darts Players">
-    <meta name="description" content="Something's off in your throw but you can't see it. OcheIQ analyzes your darts throws from video — timing, release, arm path — and tells you exactly what to fix. Record 3 throws, get results in 30 seconds.">
+    <title>OcheIQ — Darts Throw Analysis App | Free on iOS</title>
+    <meta name="title" content="OcheIQ — Darts Throw Analysis App | Free on iOS">
+    <meta name="description" content="Film your darts throw, get instant analysis. OcheIQ tracks your mechanics frame by frame — release timing, arm path, elbow stability — and gives you a drill to fix your #1 issue. Free on iOS.">
     <meta name="keywords" content="darts, dart throwing, darts analysis, darts coaching, throw mechanics, darts training, darts practice, dart technique, darts app, iOS darts app, darts improvement, consistency, timing analysis">
     <meta name="author" content="OcheIQ">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -26,8 +26,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ocheiq.com/">
     <meta property="og:site_name" content="OcheIQ">
-    <meta property="og:title" content="OcheIQ - Consistency Wins Matches">
-    <meta property="og:description" content="Film your throws, find out what's actually going wrong. Timing, arm path, consistency - actual numbers instead of guessing at slow-mo footage.">
+    <meta property="og:title" content="OcheIQ — Darts Throw Analysis App">
+    <meta property="og:description" content="Film your throw, get instant analysis. Tracks your mechanics frame by frame and tells you exactly what to fix. Free on iOS.">
     <meta property="og:image" content="https://ocheiq.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -37,8 +37,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ocheiq.com/">
-    <meta name="twitter:title" content="OcheIQ - Consistency Wins Matches">
-    <meta name="twitter:description" content="Film your throws, find out what's actually going wrong. Timing, arm path, consistency - actual numbers instead of guessing.">
+    <meta name="twitter:title" content="OcheIQ — Darts Throw Analysis App">
+    <meta name="twitter:description" content="Film your throw, get instant analysis. Tracks your mechanics frame by frame and tells you exactly what to fix. Free on iOS.">
     <meta name="twitter:image" content="https://ocheiq.com/og-image.png">
     <meta name="twitter:image:alt" content="OcheIQ - Dart throw analysis app">
     <meta name="twitter:creator" content="@ocheiq">
@@ -57,6 +57,11 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://darts-api-production.up.railway.app">
     <link rel="dns-prefetch" href="https://darts-api-production.up.railway.app">
+
+    <!-- Google Fonts - Outfit for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet">
 
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
@@ -250,14 +255,15 @@
         :root {
             --primary: #6366f1;
             --primary-dark: #4f46e5;
-            --accent: #f87171;
+            --accent: #f43f5e;
             --bg-dark: #0f0f1a;
             --bg-card: #1a1a2e;
             --text-primary: #ffffff;
             --text-secondary: #a1a1aa;
             --text-muted: #71717a;
-            --success: #22c55e;
+            --success: #10b981;
             --warning: #f59e0b;
+            --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -309,6 +315,7 @@
         }
 
         .logo span {
+            font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 700;
         }
@@ -339,6 +346,7 @@
         }
 
         .hero h1 {
+            font-family: var(--font-heading);
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 24px;
@@ -425,6 +433,13 @@
             flex-shrink: 0;
         }
 
+        /* Picture element inside phone mockup needs to flex */
+        .phone-mockup picture {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+        }
+
         /* Screen area below notch */
         .phone-mockup img {
             flex: 1;
@@ -492,6 +507,7 @@
         }
 
         .section-header h2 {
+            font-family: var(--font-heading);
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 16px;
@@ -540,7 +556,7 @@
         }
 
         .ba-column.after .ba-column-header {
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .ba-header-dot {
@@ -555,8 +571,8 @@
         }
 
         .ba-column.after .ba-header-dot {
-            background: var(--primary);
-            box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(244, 63, 94, 0.4);
         }
 
         .ba-row {
@@ -615,6 +631,7 @@
         }
 
         .solution-content h2 {
+            font-family: var(--font-heading);
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 24px;
@@ -747,6 +764,12 @@
             letter-spacing: 0.05em;
         }
 
+        .feature-badge.accent {
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            color: #fb7185;
+        }
+
         .feature-content {
             padding: 28px;
         }
@@ -781,6 +804,7 @@
         }
 
         .step-number {
+            font-family: var(--font-heading);
             width: 64px;
             height: 64px;
             background: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
@@ -842,6 +866,7 @@
         }
 
         .cta h2 {
+            font-family: var(--font-heading);
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 16px;
@@ -895,6 +920,49 @@
 
         .btn-secondary:hover {
             border-color: var(--primary);
+        }
+
+        /* QR Code */
+        .qr-section {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .qr-code {
+            width: 140px;
+            height: 140px;
+            padding: 10px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.25);
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .qr-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* Hide QR on mobile — they just tap the link */
+        @media (max-width: 768px) {
+            .qr-section {
+                display: none;
+            }
         }
 
         /* Footer */
@@ -1367,11 +1435,6 @@
                 line-height: 1.7 !important;
             }
 
-            /* Modal */
-            #coming-soon-modal > div {
-                padding: 24px !important;
-                margin: 16px !important;
-            }
         }
 
         /* Responsive - Small Mobile */
@@ -1420,6 +1483,118 @@
                 min-height: 48px;
             }
         }
+
+        /* Launch badge */
+        .launch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+        }
+
+        .launch-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* CTA section glow */
+        .cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+            margin: 0 auto 32px;
+        }
+
+        /* Entrance animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-on-scroll.scale.visible {
+            animation: fadeInScale 0.6s ease-out forwards;
+        }
+
+        .stagger-children > * {
+            opacity: 0;
+        }
+
+        .stagger-children.visible > * {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .stagger-children.visible > *:nth-child(1) { animation-delay: 0s; }
+        .stagger-children.visible > *:nth-child(2) { animation-delay: 0.1s; }
+        .stagger-children.visible > *:nth-child(3) { animation-delay: 0.15s; }
+        .stagger-children.visible > *:nth-child(4) { animation-delay: 0.2s; }
+
+        /* Hero phone stagger on page load */
+        .hero-screenshots .phone-mockup {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-screenshots .phone-mockup:nth-child(1) { animation-delay: 0.3s; }
+        .hero-screenshots .phone-mockup:nth-child(2) { animation-delay: 0.5s; }
+        .hero-screenshots .phone-mockup:nth-child(3) { animation-delay: 0.7s; }
+
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-on-scroll,
+            .stagger-children > *,
+            .hero-screenshots .phone-mockup {
+                opacity: 1 !important;
+                animation: none !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1437,6 +1612,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
+            <div class="launch-badge">
+                <span class="launch-dot"></span>
+                New on iOS — Free at Launch
+            </div>
             <h1>Stop Squinting at <span class="highlight">Slow-Mo.</span></h1>
             <p class="subtitle">OcheIQ breaks down your throws frame by frame with color overlays — so you can actually see what changed between darts. In 30 seconds.</p>
             <a href="https://apps.apple.com/app/ocheiq/id6758561208" class="hero-cta">
@@ -1447,13 +1626,22 @@
 
             <div class="hero-screenshots">
                 <div class="phone-mockup">
-                    <img src="screenshots/results.png" alt="OcheIQ Insights - Dart 2 was hesitant with pattern detection and mini score rings" class="pos-results-hero">
+                    <picture>
+                        <source srcset="screenshots/results.webp" type="image/webp">
+                        <img src="screenshots/results.png" alt="OcheIQ Insights - Dart 2 was hesitant with pattern detection and mini score rings" class="pos-results-hero">
+                    </picture>
                 </div>
                 <div class="phone-mockup">
-                    <img src="screenshots/score.png" alt="OcheIQ Session - Animated score ring showing 78 Advanced with color-coded metric bars" class="pos-score-hero">
+                    <picture>
+                        <source srcset="screenshots/score.webp" type="image/webp">
+                        <img src="screenshots/score.png" alt="OcheIQ Session - Animated score ring showing 78 Advanced with color-coded metric bars" class="pos-score-hero">
+                    </picture>
                 </div>
                 <div class="phone-mockup">
-                    <img src="screenshots/consistency.png" alt="OcheIQ Throw Overlay - Heatmap view with release cluster and consistency celebration" class="pos-consistency-hero">
+                    <picture>
+                        <source srcset="screenshots/consistency.webp" type="image/webp">
+                        <img src="screenshots/consistency.png" alt="OcheIQ Throw Overlay - Heatmap view with release cluster and consistency celebration" class="pos-consistency-hero">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -1462,12 +1650,12 @@
     <!-- Before / After Section -->
     <section class="before-after">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Stop Guessing. Start Knowing.</h2>
                 <p>Same footage. Completely different insight.</p>
             </div>
 
-            <div class="ba-grid">
+            <div class="ba-grid animate-on-scroll scale">
                 <div class="ba-column before">
                     <div class="ba-column-header">
                         <span class="ba-header-dot"></span>
@@ -1520,7 +1708,7 @@
     <section class="solution">
         <div class="container">
             <div class="solution-grid">
-                <div class="solution-content">
+                <div class="solution-content animate-on-scroll">
                     <h2>The Stuff You Can't See</h2>
                     <p>Every player has something in their throw they can't spot. Maybe your elbow drifts on dart 2. Maybe your release timing varies by half a second between throws. OcheIQ shows you what's actually happening.</p>
 
@@ -1552,9 +1740,12 @@
                     </ul>
                 </div>
 
-                <div class="solution-screenshot">
+                <div class="solution-screenshot animate-on-scroll">
                     <div class="phone-mockup">
-                        <img src="screenshots/upload.png" alt="OcheIQ Record Screen - Analyze Video button with Today's Focus coaching cue" class="pos-upload">
+                        <picture>
+                            <source srcset="screenshots/upload.webp" type="image/webp">
+                            <img src="screenshots/upload.png" alt="OcheIQ Record Screen - Analyze Video button with Today's Focus coaching cue" class="pos-upload">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -1562,19 +1753,22 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Know What to Work On</h2>
                 <p>Real technique numbers that explain your scores. Not just where darts land — why you're missing.</p>
             </div>
 
-            <div class="feature-grid">
+            <div class="feature-grid stagger-children">
                 <div class="feature-card">
                     <div class="feature-screenshot">
                         <span class="feature-badge">See your form</span>
                         <div class="feature-phone">
-                            <img src="screenshots/replay-overlay.png" alt="OcheIQ Full-Screen Replay - Skeleton overlay with trajectory path tracing through throw phases" class="pos-replay">
+                            <picture>
+                                <source srcset="screenshots/replay-overlay.webp" type="image/webp">
+                                <img src="screenshots/replay-overlay.png" alt="OcheIQ Full-Screen Replay - Skeleton overlay with trajectory path tracing through throw phases" class="pos-replay">
+                            </picture>
                         </div>
                     </div>
                     <div class="feature-content">
@@ -1585,9 +1779,12 @@
 
                 <div class="feature-card">
                     <div class="feature-screenshot">
-                        <span class="feature-badge">Compare throws</span>
+                        <span class="feature-badge accent">Compare throws</span>
                         <div class="feature-phone">
-                            <img src="screenshots/consistency.png" alt="OcheIQ Throw Overlay - Heatmap with release cluster zone and consistency celebration" class="pos-consistency">
+                            <picture>
+                                <source srcset="screenshots/consistency.webp" type="image/webp">
+                                <img src="screenshots/consistency.png" alt="OcheIQ Throw Overlay - Heatmap with release cluster zone and consistency celebration" class="pos-consistency">
+                            </picture>
                         </div>
                     </div>
                     <div class="feature-content">
@@ -1600,7 +1797,10 @@
                     <div class="feature-screenshot">
                         <span class="feature-badge">Track progress</span>
                         <div class="feature-phone">
-                            <img src="screenshots/score.png" alt="OcheIQ Session Detail - Animated score ring at 78 Advanced with color-coded metric bars and deltas" class="pos-score">
+                            <picture>
+                                <source srcset="screenshots/score.webp" type="image/webp">
+                                <img src="screenshots/score.png" alt="OcheIQ Session Detail - Animated score ring at 78 Advanced with color-coded metric bars and deltas" class="pos-score">
+                            </picture>
                         </div>
                     </div>
                     <div class="feature-content">
@@ -1611,9 +1811,12 @@
 
                 <div class="feature-card">
                     <div class="feature-screenshot">
-                        <span class="feature-badge">AI coaching</span>
+                        <span class="feature-badge accent">AI coaching</span>
                         <div class="feature-phone">
-                            <img src="screenshots/coaching.png" alt="OcheIQ AI Coaching - Tempo drill with focus cue and throw overlay visualization" class="pos-results">
+                            <picture>
+                                <source srcset="screenshots/coaching.webp" type="image/webp">
+                                <img src="screenshots/coaching.png" alt="OcheIQ AI Coaching - Tempo drill with focus cue and throw overlay visualization" class="pos-results">
+                            </picture>
                         </div>
                     </div>
                     <div class="feature-content">
@@ -1626,14 +1829,14 @@
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works">
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>One Visit. Real Data.</h2>
                 <p>Upload a 3-dart visit. See what drifted. Fix it.</p>
             </div>
 
-            <div class="steps">
+            <div class="steps stagger-children">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Upload a Visit</h3>
@@ -1664,11 +1867,11 @@
     <!-- Launch CTA -->
     <section class="testimonials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Why I Built This</h2>
             </div>
 
-            <div class="founder-story" style="max-width: 700px; margin: 0 auto; text-align: left;">
+            <div class="founder-story animate-on-scroll" style="max-width: 700px; margin: 0 auto; text-align: left;">
                 <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
                     I've got hours of slow-mo footage of myself throwing darts. Watched it back so many times. I could tell when something was off but I could never figure out <em>what</em> exactly.
                 </p>
@@ -1692,7 +1895,8 @@
     <!-- Final CTA -->
     <section class="cta" id="download">
         <div class="container">
-            <h2>Ready to see what you're doing wrong?</h2>
+            <div class="cta-divider"></div>
+            <h2 class="animate-on-scroll">Ready to see what you're doing wrong?</h2>
             <p>Free on iOS. No account needed. Just film and upload.</p>
 
             <div class="cta-buttons">
@@ -1703,6 +1907,13 @@
                 <a href="mailto:richard@ocheiq.com" class="btn-secondary">
                     Email me
                 </a>
+            </div>
+
+            <div class="qr-section">
+                <div class="qr-code">
+                    <img src="qr-code.png" alt="Scan to download OcheIQ on the App Store">
+                </div>
+                <span class="qr-label">Scan to download</span>
             </div>
 
             <p class="hero-note" style="margin-top: 24px;">Free on iOS. No limits. Android coming later.</p>
@@ -1717,6 +1928,17 @@
                 <a href="mailto:richard@ocheiq.com">richard@ocheiq.com</a>
                 <span style="color: var(--text-muted); font-size: 0.9rem;"> — I read every email</span>
             </p>
+            <p style="margin-top: 12px;">
+                <a href="https://instagram.com/ocheiq" style="display: inline-flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    @ocheiq
+                </a>
+            </p>
+            <p style="margin-top: 12px; font-size: 0.85rem;">
+                <a href="#features">Features</a> &bull;
+                <a href="#how-it-works">How It Works</a> &bull;
+                <a href="#download">Download</a>
+            </p>
             <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);">
                 <a href="privacy.html">Privacy</a> &bull;
                 <a href="terms.html">Terms</a> &bull;
@@ -1725,130 +1947,24 @@
         </div>
     </footer>
 
-    <!-- Beta Access Modal with Email Capture -->
-    <div id="coming-soon-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
-        <div style="background: var(--bg-card); border-radius: 20px; padding: 40px; max-width: 400px; margin: 20px; text-align: center; border: 1px solid rgba(99, 102, 241, 0.3);">
-            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            </div>
-
-            <!-- Default state: email form -->
-            <div id="email-form-container">
-                <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Almost live!</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 24px;">We're in App Store review right now. Drop your email and I'll send you the download link the moment it's approved.</p>
-
-                <form id="beta-email-form" onsubmit="submitEmail(event)">
-                    <input
-                        type="email"
-                        id="email-input"
-                        placeholder="your@email.com"
-                        required
-                        style="width: 100%; padding: 14px 16px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.1); background: var(--bg-dark); color: white; font-size: 1rem; margin-bottom: 12px; outline: none; transition: border-color 0.2s;"
-                        onfocus="this.style.borderColor='var(--primary)'"
-                        onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
-                    >
-                    <button
-                        type="submit"
-                        id="submit-btn"
-                        style="width: 100%; background: var(--primary); color: white; padding: 14px 24px; border-radius: 10px; border: none; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s;"
-                        onmouseover="this.style.background='var(--primary-dark)'"
-                        onmouseout="this.style.background='var(--primary)'"
-                    >
-                        Notify Me
-                    </button>
-                </form>
-                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 12px;">No spam — just the download link when we're live.</p>
-            </div>
-
-            <!-- Success state -->
-            <div id="email-success" style="display: none;">
-                <div style="width: 64px; height: 64px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="#22c55e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                </div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #22c55e;">Nice one.</h3>
-                <p style="color: var(--text-secondary);">I'll email you when we're live.</p>
-            </div>
-
-            <!-- Error state -->
-            <div id="email-error" style="display: none; color: var(--accent); margin-top: 12px; font-size: 0.9rem;"></div>
-
-            <button onclick="hideComingSoon()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; padding: 8px; margin-top: 16px;">Close</button>
-        </div>
-    </div>
-
     <script>
-        const API_URL = 'https://darts-api-production.up.railway.app';
-
-        function showComingSoon(event) {
-            event.preventDefault();
-            // Reset to form state when opening
-            document.getElementById('email-form-container').style.display = 'block';
-            document.getElementById('email-success').style.display = 'none';
-            document.getElementById('email-error').style.display = 'none';
-            document.getElementById('email-input').value = '';
-            document.getElementById('coming-soon-modal').style.display = 'flex';
+    document.addEventListener('DOMContentLoaded', function() {
+        var targets = document.querySelectorAll('.animate-on-scroll, .stagger-children');
+        if (!('IntersectionObserver' in window)) {
+            targets.forEach(function(el) { el.classList.add('visible'); });
+            return;
         }
-
-        function hideComingSoon() {
-            document.getElementById('coming-soon-modal').style.display = 'none';
-        }
-
-        async function submitEmail(event) {
-            event.preventDefault();
-
-            const emailInput = document.getElementById('email-input');
-            const submitBtn = document.getElementById('submit-btn');
-            const errorDiv = document.getElementById('email-error');
-            const email = emailInput.value.trim();
-
-            if (!email) return;
-
-            // Show loading state
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            errorDiv.style.display = 'none';
-
-            try {
-                const response = await fetch(`${API_URL}/waitlist`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email: email }),
-                });
-
-                if (response.ok) {
-                    // Show success state
-                    document.getElementById('email-form-container').style.display = 'none';
-                    document.getElementById('email-success').style.display = 'block';
-                } else {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to submit');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
-            } catch (error) {
-                // Show error
-                errorDiv.textContent = error.message === 'Failed to fetch'
-                    ? 'Network error. Please try again.'
-                    : error.message;
-                errorDiv.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Notify Me';
-            }
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('coming-soon-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                hideComingSoon();
-            }
-        });
-
-        // Close on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                hideComingSoon();
-            }
-        });
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        targets.forEach(function(el) { observer.observe(el); });
+    });
     </script>
+
 </body>
 </html>

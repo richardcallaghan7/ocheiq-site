@@ -1,0 +1,23 @@
+{
+  "redirects": [
+    { "source": "/color-system.html", "destination": "/", "permanent": true },
+    { "source": "/og-image-generator.html", "destination": "/", "permanent": true },
+    { "source": "/ig-ad.html", "destination": "/", "permanent": true },
+    { "source": "/ig-ad-v2.html", "destination": "/", "permanent": true },
+    { "source": "/ig-ad-v3.html", "destination": "/", "permanent": true },
+    { "source": "/ig-ad-v4.html", "destination": "/", "permanent": true },
+    { "source": "/ig-ad-v5.html", "destination": "/", "permanent": true },
+    { "source": "/ig-ad-v6.html", "destination": "/", "permanent": true },
+    { "source": "/ig-ad-v7.html", "destination": "/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
